@@ -4,7 +4,9 @@ from rest_framework.generics import GenericAPIView, get_object_or_404
 from rest_framework.request import HttpRequest
 from rest_framework.response import Response
 
+from .consumer import checker
 from .models import Message
+from .producers import producer
 from .serializers import MessageConfirmSerializer, MessageCreateSerializer
 
 
@@ -15,6 +17,10 @@ class MessageCreateView(GenericAPIView):
         serializer = self.serializer_class(data=self.request.POST)
         if serializer.is_valid():
             serializer.save()
+
+            producer.send("message", serializer.data)
+            checker()
+
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(status=status.HTTP_400_BAD_REQUEST)
