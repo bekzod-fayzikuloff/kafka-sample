@@ -140,3 +140,4 @@ DOCS_CONTACT = os.environ.get("DOCS_CONTACT")
 DOCS_LICENSE = os.environ.get("DOCS_LICENSE")
 
 CONFIRM_AUTH_KEY = os.environ.get("CONFIRM_AUTH_KEY")
+ROOT_URL = os.environ.get("ROOT_URL")
