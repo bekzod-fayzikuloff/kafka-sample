@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "drf_yasg",
+    "rest_framework",
+    "apps.message",
 ]
 
 MIDDLEWARE = [
@@ -136,3 +138,5 @@ DOCS_DESCRIPTION = os.environ.get("DOCS_DESCRIPTION")
 DOCS_TERMS_OF_SERVICE = os.environ.get("DOCS_TERMS_OF_SERVICE")
 DOCS_CONTACT = os.environ.get("DOCS_CONTACT")
 DOCS_LICENSE = os.environ.get("DOCS_LICENSE")
+
+CONFIRM_AUTH_KEY = os.environ.get("CONFIRM_AUTH_KEY")
